@@ -1,19 +1,14 @@
 /* TEAM */
-CEO & Fondateur: Francky BOMIL
-Lead Developer: Amidou Hyacinthe
-Directrice Marketing: Andrea Saida
-Contact: bomilsolutions@gmail.com
-Location: Yaoundé, Cameroun
-
-/* SITE */
-Last update: 2026/02/20
-Standards: HTML5, CSS3, JavaScript ES6+
-Components: SPA, Progressive Web App
-Software: VS Code, Git, Node.js
-Language: Français / French
-Doctype: HTML5
-IDE: Visual Studio Code
+Chef de projet : BOMIL SOLUTIONS
+Développeur : BOMIL SOLUTIONS
+Design : BOMIL SOLUTIONS
 
 /* THANKS */
-Merci à tous nos clients qui nous font confiance
-Merci à la communauté tech africaine
+Google Deepmind (Advanced Agentic Coding)
+Open Source Community
+
+/* SITE */
+Last update : 2026/02/20
+Language : French, English
+Software : Custom SPA (History API), Vanilla JS, CSS
+Location : Yaoundé, Cameroun
