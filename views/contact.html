@@ -1,0 +1,541 @@
+<!-- Contact View - BOMIL SOLUTIONS Premium -->
+<style>
+    /* ============================================
+       CONTACT PAGE HEADER
+       ============================================ */
+    .contact-hero {
+        padding: 10rem 0 4rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .contact-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(4, 45, 82, 0.03) 0%, transparent 70%);
+    }
+
+    .contact-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .contact-hero h1 span {
+        background: linear-gradient(135deg, #042d52, #E0A800);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .contact-hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* ============================================
+       CONTACT WRAPPER
+       ============================================ */
+    .contact-wrapper {
+        max-width: var(--max-width);
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    /* ============================================
+       CONTACT INFO
+       ============================================ */
+    .contact-info {
+        position: sticky;
+        top: 120px;
+    }
+
+    .info-card {
+        background: linear-gradient(135deg, #042d52, #0a457a);
+        color: white;
+        padding: 3rem;
+        border-radius: 24px;
+        margin-bottom: 2rem;
+    }
+
+    .info-card h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+    }
+
+    .info-item svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .info-item h4 {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.25rem;
+    }
+
+    .info-item p {
+        color: white;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .social-grid {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .social-link {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: white;
+        color: var(--color-primary);
+        transform: translateY(-5px);
+    }
+
+    .social-link svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* ============================================
+       CONTACT FORM
+       ============================================ */
+    .contact-form-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(4, 45, 82, 0.1);
+    }
+
+    .form-header {
+        margin-bottom: 2rem;
+    }
+
+    .form-header h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-grid .full-width {
+        grid-column: span 2;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary);
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid rgba(4, 45, 82, 0.1);
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(4, 45, 82, 0.02);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        background: white;
+        box-shadow: 0 0 0 4px rgba(4, 45, 82, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #999;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1.2rem;
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        margin-top: 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.3);
+    }
+
+    .submit-btn:hover::before {
+        left: 100%;
+    }
+
+    /* ============================================
+       MAP SECTION
+       ============================================ */
+    .map-section {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .map-section iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* ============================================
+       FAQ SECTION
+       ============================================ */
+    .faq-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 6rem 2rem;
+    }
+
+    .faq-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .faq-header h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .faq-item {
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 16px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .faq-item[open] {
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.1);
+        border-color: var(--color-primary);
+    }
+
+    .faq-question {
+        padding: 1.5rem 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-right: 4rem;
+        transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+        color: var(--color-primary);
+    }
+
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+
+    .faq-question::after {
+        content: '';
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        border-right: 2px solid var(--color-primary);
+        border-bottom: 2px solid var(--color-primary);
+        transform: translateY(-70%) rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+
+    .faq-item[open] .faq-question::after {
+        transform: translateY(-30%) rotate(-135deg);
+    }
+
+    .faq-answer {
+        padding: 0 2rem 1.5rem;
+        color: var(--color-text-muted);
+        line-height: 1.7;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 900px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+            position: static;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-grid .full-width {
+            grid-column: span 1;
+        }
+    }
+</style>
+
+<!-- CONTACT HERO -->
+<section class="contact-hero animate-on-scroll">
+    <h1><span data-i18n="contact.title">Parlons de votre</span> <span data-i18n="contact.titleHighlight">projet</span>
+    </h1>
+    <p data-i18n="contact.subtitle">Notre équipe est prête à vous accompagner dans votre transformation digitale.</p>
+</section>
+
+<!-- CONTACT WRAPPER -->
+<section class="contact-wrapper">
+    <!-- Contact Info -->
+    <div class="contact-info animate-on-scroll">
+        <div class="info-card">
+            <h3 data-i18n="contact.infoTitle">Coordonnées</h3>
+
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <div>
+                    <h4 data-i18n="contact.emailLabel">Email</h4>
+                    <p>bomilsolutions@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                <div>
+                    <h4 data-i18n="contact.phoneLabel">Téléphone / WhatsApp</h4>
+                    <p>+237 691 691 603</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                    <h4 data-i18n="contact.addressLabel">Adresse</h4>
+                    <p data-i18n="contact.addressValue">Yaoundé, Quartier Jouvence</p>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-card animate-on-scroll delay-200">
+        <div class="form-header">
+            <h3 data-i18n="contact.formTitle">Envoyez-nous un message</h3>
+            <p data-i18n="contact.formSubtitle">Remplissez le formulaire et nous vous répondrons sous 24h.</p>
+        </div>
+
+        <form
+            onsubmit="event.preventDefault(); alert('✅ Message envoyé avec succès ! Nous vous répondrons rapidement.');">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label data-i18n="contact.firstName">Prénom</label>
+                    <input type="text" required data-i18n="contact.firstNamePlaceholder" placeholder="Votre prénom">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="contact.lastName">Nom</label>
+                    <input type="text" required data-i18n="contact.lastNamePlaceholder" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="contact.email">Email</label>
+                    <input type="email" required data-i18n="contact.emailPlaceholder" placeholder="exemple@email.com">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="contact.phone">Téléphone</label>
+                    <input type="tel" data-i18n="contact.phonePlaceholder" placeholder="+237 6XX XXX XXX">
+                </div>
+                <div class="form-group full-width">
+                    <label data-i18n="contact.subject">Sujet</label>
+                    <select required>
+                        <option value="" data-i18n="contact.subjectDefault">Sélectionnez un sujet</option>
+                        <option data-i18n="contact.subjectWeb">Création de Site Web</option>
+                        <option data-i18n="contact.subjectMobile">Développement App Mobile</option>
+                        <option data-i18n="contact.subjectSoftware">Logiciel Sur Mesure (ERP/CRM)</option>
+                        <option data-i18n="contact.subjectLogis">Produit: LOGis</option>
+                        <option data-i18n="contact.subjectIntercity">Produit: Intercity</option>
+                        <option data-i18n="contact.subjectLucid">Produit: Lucid</option>
+                        <option data-i18n="contact.subjectVip">Service Webmaster VIP</option>
+                        <option data-i18n="contact.subjectOther">Autre demande</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label data-i18n="contact.message">Message</label>
+                    <textarea rows="5" required data-i18n="contact.messagePlaceholder"
+                        placeholder="Décrivez votre projet ou votre besoin..."></textarea>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="contact.submit">Envoyer le message →</button>
+        </form>
+    </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section animate-on-scroll">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.784799999999!2d11.5213!3d3.8480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNTAnNTMuMyJOIDExwrAzMScxNy40IkU!5e0!3m2!1sfr!2scm!4v1234567890"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+    <div class="faq-header animate-on-scroll">
+        <h2 data-i18n="contact.faqTitle">Questions Fréquentes</h2>
+        <p data-i18n="contact.faqSubtitle">Tout ce que vous devez savoir avant de démarrer.</p>
+    </div>
+
+    <details class="faq-item animate-on-scroll delay-100">
+        <summary class="faq-question" data-i18n="contact.faq1Q">Combien coûte la création d'un site web ?</summary>
+        <div class="faq-answer" data-i18n="contact.faq1A">
+            Le coût dépend de la complexité du projet (vitrine, e-commerce, application web).
+            Nos tarifs débutent à partir de 80 000 FCFA pour un site vitrine.
+            Contactez-nous pour un devis gratuit et personnalisé adapté à votre budget.
+        </div>
+    </details>
+
+    <details class="faq-item animate-on-scroll delay-200">
+        <summary class="faq-question" data-i18n="contact.faq2Q">Proposez-vous un service de maintenance ?</summary>
+        <div class="faq-answer" data-i18n="contact.faq2A">
+            Oui, nous proposons des forfaits de maintenance mensuels (Service Webmaster VIP)
+            pour assurer la sécurité, les mises à jour, les sauvegardes et les petites modifications
+            de votre site ou application.
+        </div>
+    </details>
+
+    <details class="faq-item animate-on-scroll delay-300">
+        <summary class="faq-question" data-i18n="contact.faq3Q">Combien de temps prend le développement ?</summary>
+        <div class="faq-answer" data-i18n="contact.faq3A">
+            Un site vitrine standard prend généralement 2 à 3 semaines.
+            Les applications complexes comme nos produits (LOGis, Intercity)
+            peuvent nécessiter 2 à 6 mois de développement sur mesure selon les fonctionnalités.
+        </div>
+    </details>
+
+    <details class="faq-item animate-on-scroll delay-400">
+        <summary class="faq-question" data-i18n="contact.faq4Q">Travaillez-vous avec des clients hors du Cameroun ?
+        </summary>
+        <div class="faq-answer" data-i18n="contact.faq4A">
+            Absolument ! Nous travaillons avec des clients dans toute l'Afrique et au-delà.
+            Nos outils de collaboration nous permettent de gérer efficacement les projets à distance.
+        </div>
+    </details>
+</section>

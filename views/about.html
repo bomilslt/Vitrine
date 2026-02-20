@@ -1,0 +1,607 @@
+<!-- About View - BOMIL SOLUTIONS Premium -->
+<style>
+    /* ============================================
+       ABOUT HERO SECTION
+       ============================================ */
+    .about-hero {
+        padding: 10rem 0 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 20% 50%, rgba(4, 45, 82, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(224, 168, 0, 0.03) 0%, transparent 50%);
+        z-index: 0;
+    }
+
+    .about-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .about-hero h1 span {
+        background: linear-gradient(135deg, #042d52, #E0A800);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-muted);
+        line-height: 1.8;
+    }
+
+    /* ============================================
+       VALUES SECTION
+       ============================================ */
+    .values-section {
+        padding: 5rem 0;
+        background: var(--color-bg-alt);
+    }
+
+    .values-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .value-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .value-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #042d52, #E0A800);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px rgba(4, 45, 82, 0.12);
+    }
+
+    .value-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .value-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(4, 45, 82, 0.1), rgba(224, 168, 0, 0.1));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+    }
+
+    .value-card:hover .value-icon {
+        transform: scale(1.1) rotate(10deg);
+        background: var(--color-primary);
+        color: white;
+    }
+
+    .value-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .value-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .value-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* ============================================
+       TEAM SECTION
+       ============================================ */
+    .team-section {
+        padding: 6rem 0;
+        background: var(--color-bg);
+    }
+
+    .team-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+
+    .team-member {
+        text-align: center;
+    }
+
+    .member-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        overflow: hidden;
+        border: 4px solid white;
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.15);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+    }
+
+    .member-photo::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #042d52, #E0A800);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .team-member:hover .member-photo {
+        transform: scale(1.05) translateY(-10px);
+        box-shadow: 0 25px 60px rgba(4, 45, 82, 0.2);
+    }
+
+    .team-member:hover .member-photo::before {
+        opacity: 1;
+    }
+
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .team-member:hover .member-photo img {
+        transform: scale(1.1);
+    }
+
+    .team-member h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .team-member .role {
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .team-member .bio {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* ============================================
+       LOCATION SECTION
+       ============================================ */
+    .location-section {
+        padding: 0;
+    }
+
+    .location-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 500px;
+    }
+
+    .location-info {
+        background: var(--color-primary);
+        color: white;
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .location-info h2 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .location-info p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .location-info .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .location-info .contact-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(10px);
+    }
+
+    .location-info .contact-item svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    .location-map {
+        background: #e0e0e0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .location-map iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .map-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        color: #888;
+        font-size: 1rem;
+    }
+
+    /* ============================================
+       STATS STRIP
+       ============================================ */
+    .stats-strip {
+        padding: 4rem 0;
+        background: var(--color-bg-alt);
+    }
+
+    .stats-strip-grid {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .stat-strip-item h3 {
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-strip-item p {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .location-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .location-info {
+            padding: 3rem 1.5rem;
+        }
+
+        .location-map {
+            min-height: 350px;
+        }
+
+        .stats-strip-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .about-hero {
+            padding: 6rem 0 3rem;
+        }
+
+        .about-container {
+            padding: 0 1rem;
+        }
+
+        .values-container,
+        .team-container {
+            padding: 0 1rem;
+        }
+
+        .value-card {
+            padding: 2rem 1.5rem;
+        }
+
+        .location-info {
+            padding: 2.5rem 1rem;
+        }
+
+        .location-info h2 {
+            font-size: 2rem;
+        }
+
+        .location-info .contact-item {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .location-info .contact-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .stats-strip-grid {
+            padding: 0 1rem;
+        }
+
+        .stat-strip-item h3 {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .stats-strip-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-text {
+            font-size: 1rem;
+        }
+
+        .location-info h2 {
+            font-size: 1.75rem;
+        }
+
+        .location-info p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+    <div class="about-container animate-on-scroll">
+        <h1><span data-i18n="about.title">Notre Mission :</span> <span data-i18n="about.titleHighlight">Innover</span>
+        </h1>
+        <p class="about-text" data-i18n="about.text1">
+            BOMIL SOLUTIONS est née d'une vision simple : apporter des solutions technologiques de classe mondiale aux
+            entreprises africaines. Nous croyons que la transformation digitale n'est pas un luxe, mais une nécessité
+            pour la croissance économique de notre continent.
+        </p>
+        <p class="about-text" data-i18n="about.text2">
+            Spécialisée dans le développement de logiciels, d'applications mobiles et l'automatisation, notre équipe
+            d'experts travaille avec passion pour résoudre des problèmes complexes avec élégance et efficacité.
+        </p>
+    </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="values-section">
+    <div class="values-container">
+        <div class="values-grid">
+            <div class="value-card animate-on-scroll delay-100">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path
+                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                        </path>
+                    </svg>
+                </div>
+                <h4 data-i18n="about.value1Title">Excellence</h4>
+                <p data-i18n="about.value1Desc">Nous ne livrons rien dont nous ne sommes pas fiers. La qualité du code
+                    est notre signature.</p>
+            </div>
+
+            <div class="value-card animate-on-scroll delay-200">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                </div>
+                <h4 data-i18n="about.value2Title">Impact Local</h4>
+                <p data-i18n="about.value2Desc">Nos solutions sont pensées pour le contexte africain, avec une qualité
+                    internationale.</p>
+            </div>
+
+            <div class="value-card animate-on-scroll delay-300">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h4 data-i18n="about.value3Title">Partenariat</h4>
+                <p data-i18n="about.value3Desc">Nous ne sommes pas juste des prestataires, nous sommes vos partenaires
+                    de croissance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+    <div class="stats-strip-grid">
+        <div class="stat-strip-item animate-on-scroll">
+            <h3 data-counter="2022">2020</h3>
+            <p data-i18n="about.stat1Title">Année de création</p>
+        </div>
+        <div class="stat-strip-item animate-on-scroll delay-100">
+            <h3 data-counter="10" data-suffix="+">0+</h3>
+            <p data-i18n="about.stat2Title">Experts dans l'équipe</p>
+        </div>
+        <div class="stat-strip-item animate-on-scroll delay-200">
+            <h3 data-counter="5">0</h3>
+            <p data-i18n="about.stat3Title">Secteurs d'activité</p>
+        </div>
+        <div class="stat-strip-item animate-on-scroll delay-300">
+            <h3 data-counter="100" data-suffix="%">0%</h3>
+            <p data-i18n="about.stat4Title">Projets livrés à temps</p>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+    <div class="team-container">
+        <div class="section-header animate-on-scroll">
+            <h2 data-i18n="about.teamTitle">L'Équipe Dirigeante</h2>
+            <p data-i18n="about.teamSubtitle">Des passionnés de technologie au service de votre réussite.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member animate-on-scroll delay-100">
+                <div class="member-photo">
+                    <img src="assets/images/team/francky_bomil.jpg" alt="Boris M. - CEO" loading="lazy">
+                </div>
+                <h4>Francky BOMIL</h4>
+                <p class="role">CEO & Fondateur & Développeur</p>
+                <p class="bio" data-i18n="about.ceoBio">Visionnaire tech.</p>
+            </div>
+
+            <!-- <div class="team-member animate-on-scroll delay-200">
+                <div class="member-photo">
+                    <img src="assets/images/team-dev.png" alt="Landry K. - Lead Developer">
+                </div>
+                <h4>Amidou hyacinthe</h4>
+                <p class="role">Lead Developer</p>
+                <p class="bio">Expert full-stack spécialisé dans les architectures cloud et microservices.</p>
+            </div> -->
+
+            <div class="team-member animate-on-scroll delay-300">
+                <div class="member-photo">
+                    <img src="assets/images/team/saida_mpoung.jpg" alt="Saida M. - Directrice Opérations"
+                        loading="lazy">
+                </div>
+                <h4>Andrea Saida</h4>
+                <p class="role">Marketing & Communication</p>
+                <p class="bio" data-i18n="about.opsBio">Garantit l'excellence opérationnelle et la satisfaction client à
+                    chaque projet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section class="location-section">
+    <div class="location-wrapper">
+        <div class="location-info animate-left">
+            <h2 data-i18n="about.locationTitle">Basés à Yaoundé</h2>
+            <p><strong data-i18n="about.locationDetail">Quartier Jouvence</strong></p>
+            <p data-i18n="about.locationSub">Au cœur de la capitale camerounaise</p>
+
+            <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                <span>+237 691 691 603</span>
+            </div>
+
+            <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>bomilsolutions@gmail.com</span>
+            </div>
+        </div>
+
+        <div class="location-map animate-right">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127389.2935994599!2d11.388967226705347!3d3.8283135000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bce2aab1f061f%3A0xbbf8f8e81d3560a!2sCarrefour%20Jouvence!5e0!3m2!1sfr!2scm!4v1769704666045!5m2!1sfr!2scm"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,950 @@
+<!-- Home View - BOMIL SOLUTIONS Premium -->
+<style>
+    /* ============================================
+       HERO SECTION - PREMIUM STYLE
+       ============================================ */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 8rem 0 6rem;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .gradient-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: linear-gradient(135deg, #042d52, #0a457a);
+        top: -10%;
+        right: 10%;
+        animation: orbFloat1 15s ease-in-out infinite;
+    }
+
+    .orb-2 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #E0A800, #f5c842);
+        bottom: 10%;
+        left: 5%;
+        animation: orbFloat2 12s ease-in-out infinite;
+    }
+
+    @keyframes orbFloat1 {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+            transform: translate(-30px, 50px) scale(1.1);
+        }
+    }
+
+    @keyframes orbFloat2 {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+            transform: translate(40px, -30px) scale(0.9);
+        }
+    }
+
+    .hero-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+    }
+
+    .hero-text h1 .gradient-text {
+        background: linear-gradient(135deg, #042d52 0%, #0a457a 50%, #E0A800 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+
+        0%,
+        100% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    .hero-text .subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        color: var(--color-text-muted);
+        line-height: 1.7;
+        max-width: 90%;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        background: rgba(4, 45, 82, 0.08);
+        border: 1px solid rgba(4, 45, 82, 0.15);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.02em;
+    }
+
+    .hero-badge svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.3);
+    }
+
+    .btn-primary:hover::before {
+        left: 100%;
+    }
+
+    .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .hero-image {
+        width: 100%;
+        border-radius: 24px;
+        box-shadow: 0 30px 80px rgba(4, 45, 82, 0.2);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-image-container:hover .hero-image {
+        transform: scale(1.02) translateY(-10px);
+    }
+
+    .floating-card {
+        position: absolute;
+        background: white;
+        border-radius: 16px;
+        padding: 1rem 1.2rem;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-card-1 {
+        bottom: 15%;
+        left: -10%;
+        animation-delay: 0s;
+    }
+
+    .floating-card-2 {
+        top: 10%;
+        right: -5%;
+        animation-delay: 1s;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .floating-card .card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #042d52, #0a457a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .floating-card .card-text {
+        font-size: 0.85rem;
+    }
+
+    .floating-card .card-text strong {
+        display: block;
+        font-size: 1rem;
+        color: var(--color-primary);
+    }
+
+    /* ============================================
+       TRUSTED BY SECTION
+       ============================================ */
+    .trusted-section {
+        background: white;
+        padding: 3rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .trusted-title {
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 2rem;
+    }
+
+    .marquee-container {
+        overflow: hidden;
+        padding: 1rem 0;
+    }
+
+    .marquee-content {
+        display: inline-flex;
+        animation: marquee 25s linear infinite;
+    }
+
+    .marquee-content:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .marquee-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 3rem;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--color-primary);
+        opacity: 0.6;
+        transition: opacity 0.3s;
+    }
+
+    .marquee-item:hover {
+        opacity: 1;
+    }
+
+    /* ============================================
+       STATS SECTION - PREMIUM COUNTERS
+       ============================================ */
+    .stats-section {
+        background: var(--color-primary);
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stats-bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: gridMove 30s linear infinite;
+    }
+
+    @keyframes gridMove {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 50px 50px;
+        }
+    }
+
+    .stats-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .stat-item h3 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: white;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    /* ============================================
+       FEATURES SECTION
+       ============================================ */
+    .features-section {
+        padding: 8rem 0;
+        background: var(--color-bg);
+    }
+
+    .features-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+    }
+
+    .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #042d52, #E0A800);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px rgba(4, 45, 82, 0.12);
+    }
+
+    .feature-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(4, 45, 82, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+        background: var(--color-primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* ============================================
+       PROCESS SECTION
+       ============================================ */
+    .process-section {
+        padding: 8rem 0;
+        background: var(--color-bg-alt);
+    }
+
+    .process-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        position: relative;
+    }
+
+    .process-grid::before {
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-primary), transparent);
+        z-index: 0;
+    }
+
+    .process-step {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .step-number {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border: 3px solid var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin: 0 auto 1.5rem;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .process-step:hover .step-number {
+        background: var(--color-primary);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(4, 45, 82, 0.3);
+    }
+
+    .process-step h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .process-step p {
+        font-size: 0.9rem;
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .cta-section {
+        padding: 8rem 0;
+        text-align: center;
+        background: var(--color-bg);
+        position: relative;
+    }
+
+    .cta-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .cta-section h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+        font-size: 1.15rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .cta-btn {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        font-size: 1.1rem;
+        background: var(--color-primary);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 50px rgba(4, 45, 82, 0.35);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+        .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 3rem;
+        }
+
+        .hero-text .subtitle {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            justify-content: center;
+        }
+
+        .hero-image-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .floating-card {
+            display: none;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .process-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .process-grid::before {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <!-- Background Orbs -->
+    <div class="hero-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="hero-content">
+        <!-- Text Content -->
+        <div class="hero-text animate-on-scroll">
+            <span class="hero-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span data-i18n="home.badge">Solutions Digitales Premium</span>
+            </span>
+            <h1><span data-i18n="home.title">L'innovation tech au service de</span> <span class="gradient-text"
+                    data-i18n="home.titleHighlight">l'Afrique</span></h1>
+            <p class="subtitle" data-i18n="home.subtitle">
+                BOMIL SOLUTIONS transforme vos défis en opportunités digitales.
+                Nous concevons des écosystèmes logiciels complets pour propulser votre croissance,
+                de l'application mobile aux systèmes d'entreprise complexes.
+            </p>
+            <div class="hero-cta">
+                <a href="#/contact" class="btn-primary" data-link data-i18n="home.ctaPrimary">Démarrer un projet</a>
+                <a href="#/products" class="btn-secondary" data-link data-i18n="home.ctaSecondary">Voir nos produits</a>
+            </div>
+        </div>
+
+        <!-- Visual Element -->
+        <div class="hero-visual animate-on-scroll delay-200">
+            <div class="hero-image-container tilt-card">
+                <img src="assets/images/hero-visual.png" alt="Innovation Tech BOMIL" class="hero-image" loading="lazy">
+
+                <!-- Floating Cards -->
+                <div class="floating-card floating-card-1">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" width="20" height="20">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <strong>100%</strong>
+                        <span data-i18n="common.success">Satisfaction client</span>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-card-2">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" width="20" height="20">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <strong>+120%</strong>
+                        <span data-i18n="home.statsClients">Croissance clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUSTED BY SECTION -->
+<!-- <section class="trusted-section">
+    <p class="trusted-title">Ils nous font confiance</p>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                ENEO
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                ORANGE
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                MTN
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M3 3v18h18"></path>
+                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                </svg>
+                CANAL+
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                </svg>
+                BICEC
+            </div>
+            <!-- Duplicates for seamless loop -->
+<!-- <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                ENEO
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                ORANGE
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                MTN
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M3 3v18h18"></path>
+                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                </svg>
+                CANAL+
+            </div>
+            <div class="marquee-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                </svg>
+                BICEC
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- STATS SECTION -->
+<section class="stats-section">
+    <div class="stats-bg-grid"></div>
+    <div class="stats-container">
+        <div class="stats-grid">
+            <div class="stat-item animate-on-scroll">
+                <h3 data-counter="50" data-suffix="+">0+</h3>
+                <p data-i18n="home.statsProjects">Projets Livrés</p>
+            </div>
+            <div class="stat-item animate-on-scroll delay-100">
+                <h3 data-counter="40" data-suffix="+">0+</h3>
+                <p data-i18n="home.statsClients">Clients Satisfaits</p>
+            </div>
+            <div class="stat-item animate-on-scroll delay-200">
+                <h3 data-counter="5" data-suffix="+">0+</h3>
+                <p data-i18n="home.statsYears">Années d'Expérience</p>
+            </div>
+            <div class="stat-item animate-on-scroll delay-300">
+                <h3 data-counter="24" data-suffix="/7">0/7</h3>
+                <p data-i18n="home.statsSupport">Support Technique</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features-section">
+    <div class="features-container">
+        <div class="section-header animate-on-scroll">
+            <h2 data-i18n="home.whyTitle">Pourquoi <span style="color: var(--color-primary)">BOMIL</span> ?</h2>
+            <p data-i18n="home.whySubtitle">Une expertise tech de pointe combinée à une compréhension profonde des défis
+                africains.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card animate-on-scroll delay-100">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 data-i18n="home.feature1Title">Fiabilité Absolue</h3>
+                <p data-i18n="home.feature1Desc">Des systèmes robustes conçus pour ne jamais faillir. Hébergement
+                    sécurisé et sauvegardes
+                    quotidiennes garanties.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card animate-on-scroll delay-200">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 data-i18n="home.feature2Title">Design Centré Utilisateur</h3>
+                <p data-i18n="home.feature2Desc">Ergonomie pensée pour l'humain. Des interfaces intuitives qui ne
+                    nécessitent aucun mode
+                    d'emploi.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card animate-on-scroll delay-300">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3 data-i18n="home.feature3Title">Innovation Continue</h3>
+                <p data-i18n="home.feature3Desc">Toujours à l'avant-garde. Nous intégrons l'IA pour automatiser vos
+                    tâches les plus
+                    complexes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
+    <div class="process-container">
+        <div class="section-header animate-on-scroll">
+            <h2 data-i18n="home.processTitle">Notre Processus</h2>
+            <p data-i18n="home.processSubtitle">Une méthodologie agile et transparente pour garantir le succès de votre
+                projet.</p>
+        </div>
+
+        <div class="process-grid">
+            <!-- Step 1 -->
+            <div class="process-step animate-on-scroll delay-100">
+                <div class="step-number">01</div>
+                <h3 data-i18n="home.process1">Découverte</h3>
+                <p data-i18n="home.process1Desc">Analyse approfondie de vos besoins et objectifs business.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step animate-on-scroll delay-200">
+                <div class="step-number">02</div>
+                <h3 data-i18n="home.process2">Design UX/UI</h3>
+                <p data-i18n="home.process2Desc">Conception d'interfaces modernes et centrées sur l'utilisateur.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step animate-on-scroll delay-300">
+                <div class="step-number">03</div>
+                <h3 data-i18n="home.process3">Développement</h3>
+                <p data-i18n="home.process3Desc">Codage avec les dernières technologies et standards de qualité.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step animate-on-scroll delay-400">
+                <div class="step-number">04</div>
+                <h3 data-i18n="home.process4">Lancement</h3>
+                <p data-i18n="home.process4Desc">Déploiement, formation et accompagnement post-lancement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+    <div class="cta-container animate-on-scroll">
+        <h2 data-i18n="home.ctaTitle">Prêt à innover ?</h2>
+        <p data-i18n="home.ctaSubtitle">Rejoignez les entreprises qui façonnent le futur digital de l'Afrique avec BOMIL
+            SOLUTIONS.</p>
+        <a href="#/contact" class="cta-btn" data-link data-i18n="home.ctaButton">Discuter de mon projet →</a>
+    </div>
+</section>

@@ -1,0 +1,77 @@
+# ============================================
+# BOMIL SOLUTIONS - Git Attributes
+# ============================================
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# ============================================
+# Source code
+# ============================================
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+
+# ============================================
+# Configuration files
+# ============================================
+.htaccess text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# ============================================
+# Images
+# ============================================
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+*.webp binary
+
+# ============================================
+# Fonts
+# ============================================
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+
+# ============================================
+# Archives
+# ============================================
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+*.7z binary
+
+# ============================================
+# Documents
+# ============================================
+*.pdf binary
+*.doc binary
+*.docx binary
+
+# ============================================
+# Linguist (GitHub language detection)
+# ============================================
+
+# Exclude documentation from language stats
+*.md linguist-documentation
+
+# Exclude vendor files
+assets/images/* linguist-vendored
+
+# Mark as documentation
+blog-seo.html linguist-documentation
+faq-schema.html linguist-documentation
+verify-seo.html linguist-documentation
+seo-performance-tracker.html linguist-documentation
+SEO-INDEX.html linguist-documentation

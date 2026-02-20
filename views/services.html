@@ -1,0 +1,563 @@
+<!-- Services View - BOMIL SOLUTIONS Premium -->
+<style>
+    /* ============================================
+       PAGE HEADER
+       ============================================ */
+    .page-header {
+        padding: 10rem 0 6rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(circle at 30% 30%, rgba(4, 45, 82, 0.04) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(224, 168, 0, 0.03) 0%, transparent 50%);
+    }
+
+    .page-header h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .page-header h1 span {
+        background: linear-gradient(135deg, #042d52, #E0A800);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ============================================
+       SERVICES GRID - BENTO STYLE
+       ============================================ */
+    .services-container {
+        max-width: var(--max-width);
+        margin: -3rem auto 6rem;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(300px, auto);
+        gap: 1.5rem;
+    }
+
+    .bento-item {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bento-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #042d52, #E0A800);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+    }
+
+    .bento-item:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 30px 70px rgba(4, 45, 82, 0.15);
+    }
+
+    .bento-item:hover::before {
+        transform: scaleX(1);
+    }
+
+    .span-2 {
+        grid-column: span 2;
+    }
+
+    .span-row-2 {
+        grid-row: span 2;
+    }
+
+    .bento-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(4, 45, 82, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+    }
+
+    .bento-item:hover .bento-icon {
+        background: var(--color-primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .bento-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .bento-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .bento-item p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .service-features {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    .service-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+    }
+
+    .service-features li svg {
+        width: 18px;
+        height: 18px;
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+
+    /* Featured Card */
+    .featured-card {
+        background: linear-gradient(135deg, #042d52, #0a457a);
+        color: white;
+    }
+
+    .featured-card h3,
+    .featured-card p {
+        color: white;
+    }
+
+    .featured-card .bento-icon {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+    }
+
+    .featured-card:hover .bento-icon {
+        background: white;
+        color: var(--color-primary);
+    }
+
+    .featured-card .service-features li {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .featured-card .service-features li svg {
+        color: #E0A800;
+    }
+
+    .included-box {
+        margin-top: auto;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        margin-top: 2rem;
+    }
+
+    .included-box h4 {
+        color: white;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       TECH STACK SECTION
+       ============================================ */
+    .tech-section {
+        padding: 6rem 0;
+        background: var(--color-bg-alt);
+        text-align: center;
+    }
+
+    .tech-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .tech-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .tech-section>p {
+        max-width: 600px;
+        margin: 0 auto 3rem;
+    }
+
+    .tech-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.5rem 2rem;
+        background: white;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .tech-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.1);
+    }
+
+    .tech-item svg {
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .services-cta {
+        padding: 6rem 0;
+        text-align: center;
+        background: var(--color-bg);
+    }
+
+    .cta-card {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 4rem;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(4, 45, 82, 0.1);
+    }
+
+    .cta-card h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-card p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--color-primary);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(4, 45, 82, 0.3);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+        .bento-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .span-2,
+        .span-row-2 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+    }
+</style>
+
+<!-- PAGE HEADER -->
+<section class="page-header animate-on-scroll">
+    <h1><span data-i18n="services.title">Expertise</span> <span data-i18n="services.titleHighlight">BOMIL</span></h1>
+    <p data-i18n="services.subtitle">Technologie de pointe pour entreprises ambitieuses.</p>
+</section>
+
+<!-- SERVICES BENTO GRID -->
+<section class="services-container">
+    <div class="bento-grid">
+        <!-- Web Development -->
+        <div class="bento-item span-2 animate-on-scroll delay-100">
+            <div class="bento-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+            </div>
+            <h3 data-i18n="services.webTitle">Développement Web Moderne</h3>
+            <p data-i18n="services.webDesc">Nous concevons des plateformes performantes utilisant les dernières
+                technologies. Architecture SPA, PWA,
+                et intégrations API complexes pour une expérience utilisateur exceptionnelle.</p>
+            <ul class="service-features">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n="services.webFeature1">Sites Vitrines Interactifs & 3D</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n="services.webFeature2">Plateformes E-commerce & Marketplaces</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n="services.webFeature3">Tableaux de Bord Administratifs (SaaS)</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Apps -->
+        <div class="bento-item animate-on-scroll delay-200">
+            <div class="bento-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+            </div>
+            <h3 data-i18n="services.mobileTitle">Apps Mobile & Desktop</h3>
+            <p data-i18n="services.mobileDesc">iOS, Android, Windows, Mac. Une seule base de code pour toutes les
+                plateformes grâce à Flutter et
+                Electron.</p>
+            <ul class="service-features">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n="services.mobileFeature1">Applications natives</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n="services.mobileFeature2">Mode Offline & Synchro Cloud</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Automation -->
+        <div class="bento-item animate-on-scroll delay-300">
+            <div class="bento-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <h3 data-i18n="services.autoTitle">Automatisation IA</h3>
+            <p data-i18n="services.autoDesc">Réduisez vos coûts opérationnels. Intégration d'IA générative et scripts
+                pour automatiser vos tâches
+                répétitives.</p>
+        </div>
+
+        <!-- Webmaster VIP - Featured -->
+        <div class="bento-item featured-card span-row-2 animate-on-scroll delay-400">
+            <div class="bento-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+            </div>
+            <h3 data-i18n="services.webmasterTitle">Service Webmaster VIP</h3>
+            <p data-i18n="services.webmasterDesc">Votre département IT externalisé. Nous veillons sur vos actifs
+                digitaux 24/7 pour une sécurité maximale
+                et une performance optimale.</p>
+
+            <div class="included-box">
+                <h4 data-i18n="services.webmasterInclusion">Inclus dans le pack :</h4>
+                <ul class="service-features">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span data-i18n="services.webmasterFeature1">Mises à jour de sécurité critiques</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span data-i18n="services.webmasterFeature2">Sauvegardes quotidiennes</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span data-i18n="services.webmasterFeature3">Optimisation SEO</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span data-i18n="services.webmasterFeature4">Support prioritaire WhatsApp</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Custom Solutions -->
+        <div class="bento-item span-2 animate-on-scroll delay-500">
+            <div class="bento-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+            </div>
+            <h3 data-i18n="services.customTitle">Solutions Digitales Sur Mesure</h3>
+            <p data-i18n="services.customDesc">Chaque entreprise a des défis uniques. Nous développons des logiciels
+                ERP, CRM et outils métier parfaitement adaptés à votre workflow spécifique (Gestion de stock, ERP
+                Transit, etc.).</p>
+        </div>
+    </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech-section">
+    <div class="tech-container animate-on-scroll">
+        <h2 data-i18n="services.techTitle">Nos Technologies</h2>
+        <p data-i18n="services.techSubtitle">Nous utilisons les outils les plus performants du marché pour construire
+            vos solutions.</p>
+
+        <div class="tech-grid">
+            <div class="tech-item animate-on-scroll delay-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                PYTHON
+            </div>
+            <div class="tech-item animate-on-scroll delay-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                    <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                    <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+                </svg>
+                JAVASCRIPT
+            </div>
+            <div class="tech-item animate-on-scroll delay-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M10 20l4-16"></path>
+                    <path d="M6 6l-4 6 4 6"></path>
+                    <path d="M18 6l4 6-4 6"></path>
+                </svg>
+                HTML
+            </div>
+            <div class="tech-item animate-on-scroll delay-400">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M4 7l8-4 8 4v10l-8 4-8-4V7z"></path>
+                    <path d="M12 3v18"></path>
+                    <path d="M4 7l8 4 8-4"></path>
+                </svg>
+                CSS
+            </div>
+            <div class="tech-item animate-on-scroll delay-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+                SQL
+            </div>
+            <div class="tech-item animate-on-scroll delay-600">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M22 12A10 10 0 1 1 12 2"></path>
+                    <path d="M22 2L12 12"></path>
+                    <path d="M16 2h6v6"></path>
+                </svg>
+                AWS
+            </div>
+            <div class="tech-item animate-on-scroll delay-700">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                </svg>
+                CLOUDFLARE
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="services-cta">
+    <div class="cta-card animate-on-scroll">
+        <h2 data-i18n="services.ctaTitle">Prêt à transformer votre idée ?</h2>
+        <p data-i18n="services.ctaSubtitle">Discutons de votre projet et voyons comment nous pouvons vous aider à
+            atteindre vos objectifs.</p>
+        <a href="#/contact" class="cta-btn" data-link data-i18n="services.ctaButton">Demander un devis gratuit →</a>
+    </div>
+</section>

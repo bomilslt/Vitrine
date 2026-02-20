@@ -1,0 +1,35 @@
+{
+  "name": "BOMIL SOLUTIONS - Développement Web & Mobile au Cameroun",
+  "short_name": "BOMIL",
+  "description": "Agence de développement web et mobile au Cameroun. Solutions digitales sur mesure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFCF8",
+  "theme_color": "#042d52",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "lang": "fr",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "assets/images/hero-visual.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ]
+}

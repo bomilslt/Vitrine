@@ -1,0 +1,436 @@
+<!-- Products View - BOMIL SOLUTIONS Premium -->
+<style>
+    /* ============================================
+       PRODUCTS HEADER
+       ============================================ */
+    .products-header {
+        padding: 10rem 0 8rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .products-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 20% 50%, rgba(4, 45, 82, 0.04) 0%, transparent 50%),
+            radial-gradient(circle at 80% 30%, rgba(224, 168, 0, 0.03) 0%, transparent 50%);
+    }
+
+    .products-header h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .products-header h1 span {
+        background: linear-gradient(135deg, #042d52, #E0A800);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .products-header p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ============================================
+       PRODUCTS GRID
+       ============================================ */
+    .products-grid {
+        max-width: var(--max-width);
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* ============================================
+       PRODUCT CARD - PREMIUM
+       ============================================ */
+    .product-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #042d52, #E0A800);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+        z-index: 10;
+    }
+
+    .product-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 30px 70px rgba(4, 45, 82, 0.18);
+    }
+
+    .product-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .product-image {
+        height: 280px;
+        background: linear-gradient(135deg, #0a1628, #1a2942);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.1);
+    }
+
+    .product-badge {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        background: white;
+        color: var(--color-primary);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        z-index: 5;
+    }
+
+    .product-content {
+        padding: 2.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .product-title {
+        font-size: 1.75rem;
+        background: linear-gradient(135deg, var(--color-primary), #0a457a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .product-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(4, 45, 82, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+    }
+
+    .product-card:hover .product-icon {
+        background: var(--color-primary);
+        color: white;
+        transform: rotate(10deg);
+    }
+
+    .product-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .product-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        background: linear-gradient(135deg, rgba(4, 45, 82, 0.08), rgba(224, 168, 0, 0.08));
+        color: var(--color-primary);
+        padding: 0.4rem 0.9rem;
+        border-radius: 50px;
+        font-weight: 600;
+        border: 1px solid rgba(4, 45, 82, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+        background: var(--color-primary);
+        color: white;
+    }
+
+    .product-desc {
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        margin-bottom: 2rem;
+        flex-grow: 1;
+        line-height: 1.7;
+    }
+
+    .card-footer {
+        margin-top: auto;
+    }
+
+    .product-btn {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 1rem 2rem;
+        background: var(--color-primary);
+        color: white;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .product-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(4, 45, 82, 0.3);
+    }
+
+    .product-btn:hover::before {
+        left: 100%;
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .products-cta {
+        padding: 6rem 0;
+        text-align: center;
+        background: linear-gradient(135deg, var(--color-primary), #0a457a);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .products-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .cta-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .products-cta h2 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .products-cta p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-btn-white {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: var(--color-primary);
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.4s ease;
+    }
+
+    .cta-btn-white:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+        .products-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+    }
+</style>
+
+<!-- PRODUCTS HEADER -->
+<section class="products-header animate-on-scroll">
+    <h1><span data-i18n="products.title">Solutions</span> <span data-i18n="products.titleHighlight">Métier</span></h1>
+    <p data-i18n="products.subtitle">Des écosystèmes logiciels complets pour propulser votre business vers le succès.
+    </p>
+</section>
+
+<!-- PRODUCTS GRID -->
+<section class="products-grid">
+    <!-- Lucid -->
+    <div class="product-card animate-on-scroll delay-100">
+        <div class="product-image">
+            <span class="product-badge" data-i18n="products.badgeSaas">SaaS</span>
+            <img src="assets/images/product-lucid.png" data-i18n-attr="alt:products.lucidCardAlt"
+                alt="Lucid - Logiciel de facturation" loading="lazy">
+        </div>
+        <div class="product-content">
+            <div class="product-header">
+                <h3 class="product-title" data-i18n="products.lucidTitle">Lucid</h3>
+                <div class="product-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="product-tags">
+                <span class="tag" data-i18n="products.lucidTag1">Facturation</span>
+                <span class="tag" data-i18n="products.lucidTag2">Stock</span>
+                <span class="tag" data-i18n="products.lucidTag3">Reporting</span>
+            </div>
+            <p class="product-desc" data-i18n="products.lucidDesc">
+                Logiciel intuitif de facturation et gestion de stock pour PME.
+                Gardez un contrôle total sur vos finances et votre inventaire avec des rapports intelligents.
+            </p>
+            <div class="card-footer">
+                <a href="#/product-detail?id=lucid" data-link class="product-btn" data-i18n="products.lucidCta">
+                    Découvrir Lucid →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGis -->
+    <div class="product-card animate-on-scroll delay-200">
+        <div class="product-image">
+            <span class="product-badge" data-i18n="products.badgePlatform">Platform</span>
+            <img src="assets/images/product-logis.png" data-i18n-attr="alt:products.logisCardAlt"
+                alt="LOGis - Plateforme logistique" loading="lazy">
+        </div>
+        <div class="product-content">
+            <div class="product-header">
+                <h3 class="product-title" data-i18n="products.logisTitle">LOGis</h3>
+                <div class="product-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="product-tags">
+                <span class="tag" data-i18n="products.logisTag1">Transit</span>
+                <span class="tag" data-i18n="products.logisTag2">Tracking</span>
+                <span class="tag" data-i18n="products.logisTag3">Logistique</span>
+            </div>
+            <p class="product-desc" data-i18n="products.logisDesc">
+                Écosystème complet pour agences de transit international.
+                Gestion clients, colis, tracking temps réel et webhooks pour une traçabilité parfaite.
+            </p>
+            <div class="card-footer">
+                <a href="#/product-detail?id=logis" data-link class="product-btn" data-i18n="products.logisCta">
+                    Découvrir LOGis →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intercity -->
+    <div class="product-card animate-on-scroll delay-300">
+        <div class="product-image">
+            <span class="product-badge" data-i18n="products.badgeEcosystem">Écosystème</span>
+            <img src="assets/images/product-intercity.png" data-i18n-attr="alt:products.intercityCardAlt"
+                alt="Intercity - Gestion transport" loading="lazy">
+        </div>
+        <div class="product-content">
+            <div class="product-header">
+                <h3 class="product-title" data-i18n="products.intercityTitle">Intercity</h3>
+                <div class="product-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="product-tags">
+                <span class="tag" data-i18n="products.intercityTag1">Transport</span>
+                <span class="tag" data-i18n="products.intercityTag2">Réservation</span>
+                <span class="tag" data-i18n="products.intercityTag3">Suivi 3D</span>
+            </div>
+            <p class="product-desc" data-i18n="products.intercityDesc">
+                Solution de gestion pour agences de voyage interurbaines.
+                Réservations, parc automobile, chauffeurs et carte 3D interactive des trajets.
+            </p>
+            <div class="card-footer">
+                <a href="#/product-detail?id=intercity" data-link class="product-btn" data-i18n="products.intercityCta">
+                    Découvrir Intercity →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="products-cta">
+    <div class="cta-container animate-on-scroll">
+        <h2 data-i18n="products.ctaTitle">Besoin d'une solution sur mesure ?</h2>
+        <p data-i18n="products.ctaSubtitle">Nous développons aussi des logiciels personnalisés adaptés à votre secteur
+            d'activité.</p>
+        <a href="#/contact" data-link class="cta-btn-white" data-i18n="products.ctaButton">Discuter de mon projet →</a>
+    </div>
+</section>

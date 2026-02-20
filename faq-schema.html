@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="faqPage.title">FAQ - Questions Fréquentes | BOMIL SOLUTIONS</title>
+  <meta name="description" data-i18n-attr="content:faqPage.description"
+    content="Réponses aux questions fréquentes sur nos services de développement web et mobile au Cameroun">
+  <link rel="canonical" href="https://www.bomils.com/faq-schema.html">
+
+  <!-- FAQ Schema.org pour Rich Snippets -->
+  <script type="application/ld+json" id="faq-jsonld">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte le développement d'un site web au Cameroun ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le prix d'un site web au Cameroun varie selon la complexité : un site vitrine coûte entre 300 000 et 1 500 000 FCFA, un site e-commerce entre 1 500 000 et 5 000 000 FCFA. BOMIL SOLUTIONS offre des devis gratuits personnalisés selon vos besoins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour développer une application mobile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le développement d'une application mobile prend généralement entre 2 et 6 mois selon la complexité. Une application simple peut être livrée en 6-8 semaines, tandis qu'une application complexe avec backend peut prendre 4-6 mois. BOMIL SOLUTIONS utilise des méthodologies agiles pour des livraisons rapides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles technologies utilisez-vous pour le développement web ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BOMIL SOLUTIONS maîtrise les technologies modernes : React, Vue.js, Angular pour le frontend ; Node.js, Laravel, Django pour le backend ; MySQL, PostgreSQL, MongoDB pour les bases de données. Nous choisissons la stack technique la plus adaptée à votre projet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Proposez-vous la maintenance après la livraison ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, BOMIL SOLUTIONS propose des contrats de maintenance mensuels incluant : mises à jour de sécurité, corrections de bugs, sauvegardes quotidiennes, monitoring 24/7, et support technique. Les tarifs commencent à 50 000 FCFA/mois selon les besoins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Développez-vous des applications Android et iOS ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, nous développons des applications natives (Swift pour iOS, Kotlin pour Android) et hybrides (React Native, Flutter). Les applications hybrides permettent de cibler iOS et Android avec un seul code, réduisant les coûts de 40% tout en maintenant d'excellentes performances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où êtes-vous situés au Cameroun ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BOMIL SOLUTIONS est basé à Yaoundé, Quartier Jouvence. Nous recevons nos clients sur rendez-vous et intervenons également à Douala et dans toute l'Afrique centrale. Contact : +237 691 691 603 ou bomilsolutions@gmail.com"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que Lucid, LOGis et Intercity ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ce sont nos solutions logicielles métier : Lucid est un logiciel de facturation et gestion de stock pour PME ; LOGis est une plateforme complète pour agences de transit international ; Intercity est un système de gestion pour compagnies de transport interurbain. Toutes sont adaptées au contexte camerounais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Acceptez-vous les paiements en plusieurs fois ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, BOMIL SOLUTIONS propose des facilités de paiement : 30% à la signature, 40% à mi-projet, 30% à la livraison. Pour les grands projets, nous pouvons établir un échéancier personnalisé. Nous acceptons les virements bancaires, Mobile Money (MTN, Orange) et espèces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Offrez-vous une garantie sur vos développements ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, tous nos projets incluent une garantie de 3 mois après livraison couvrant les bugs et dysfonctionnements. Nous offrons également un support gratuit de 30 jours pour la formation et l'accompagnement de vos équipes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je voir des exemples de vos réalisations ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, consultez notre portfolio sur notre site web ou contactez-nous pour une présentation détaillée de nos projets. Nous avons réalisé plus de 50 projets pour des clients au Cameroun et en Afrique centrale, dans divers secteurs : e-commerce, logistique, transport, finance, éducation."
+          }
+        }
+      ]
+    }
+    </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #333;
+    }
+
+    h1 {
+      color: #042d52;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-item {
+      background: #f9f9f9;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #042d52;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateX(5px);
+    }
+
+    .question {
+      font-weight: bold;
+      color: #042d52;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .answer {
+      color: #333;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      padding: 30px;
+      background: #042d52;
+      color: white;
+      border-radius: 8px;
+    }
+
+    .cta a {
+      color: #E0A800;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cta a:hover {
+      text-decoration: underline;
+    }
+
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .lang-btn {
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: none;
+      background: #f0f0f0;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+
+    .lang-btn.active {
+      background: #042d52;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
+  <h1 data-i18n="faqPage.h1">❓ Questions Fréquentes - BOMIL SOLUTIONS</h1>
+
+  <div id="faq-container">
+    <!-- FAQ items will be enhanced with data-i18n -->
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q1">Combien coûte le développement d'un site web au
+        Cameroun ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a1">
+          Le prix d'un site web au Cameroun varie selon la complexité : un site vitrine coûte entre 300 000 et 1 500 000
+          FCFA, un site e-commerce entre 1 500 000 et 5 000 000 FCFA. BOMIL SOLUTIONS offre des devis gratuits
+          personnalisés selon vos besoins.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q2">Combien de temps faut-il pour développer une
+        application mobile ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a2">
+          Le développement d'une application mobile prend généralement entre 2 et 6 mois selon la complexité. Une
+          application simple peut être livrée en 6-8 semaines, tandis qu'une application complexe avec backend peut
+          prendre 4-6 mois. BOMIL SOLUTIONS utilise des méthodologies agiles pour des livraisons rapides.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q3">Quelles technologies utilisez-vous pour le
+        développement web ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a3">
+          BOMIL SOLUTIONS maîtrise les technologies modernes : React, Vue.js, Angular pour le frontend ; Node.js,
+          Laravel, Django pour le backend ; MySQL, PostgreSQL, MongoDB pour les bases de données. Nous choisissons la
+          stack technique la plus adaptée à votre projet.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q4">Proposez-vous la maintenance après la livraison ?
+      </div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a4">
+          Oui, BOMIL SOLUTIONS propose des contrats de maintenance mensuels incluant : mises à jour de sécurité,
+          corrections de bugs, sauvegardes quotidiennes, monitoring 24/7, et support technique. Les tarifs commencent à
+          50 000 FCFA/mois selon les besoins.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q5">Développez-vous des applications Android et iOS ?
+      </div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a5">
+          Oui, nous développons des applications natives (Swift pour iOS, Kotlin pour Android) et hybrides (React
+          Native, Flutter). Les applications hybrides permettent de cibler iOS et Android avec un seul code, réduisant
+          les coûts de 40% tout en maintenant d'excellentes performances.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q6">Où êtes-vous situés au Cameroun ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a6">
+          BOMIL SOLUTIONS est basé à Yaoundé, Quartier Jouvence. Nous recevons nos clients sur rendez-vous et
+          intervenons également à Douala et dans toute l'Afrique centrale. Contact : +237 691 691 603 ou
+          bomilsolutions@gmail.com
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q7">Qu'est-ce que Lucid, LOGis et Intercity ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a7">
+          Ce sont nos solutions logicielles métier : Lucid est un logiciel de facturation et gestion de stock pour PME ;
+          LOGis est une plateforme complète pour agences de transit international ; Intercity est un système de gestion
+          pour compagnies de transport interurbain. Toutes sont adaptées au contexte camerounais.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q8">Acceptez-vous les paiements en plusieurs fois ?</div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a8">
+          Oui, BOMIL SOLUTIONS propose des facilités de paiement : 30% à la signature, 40% à mi-projet, 30% à la
+          livraison. Pour les grands projets, nous pouvons établir un échéancier personnalisé. Nous acceptons les
+          virements bancaires, Mobile Money (MTN, Orange) et espèces.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q9">Offrez-vous une garantie sur vos développements ?
+      </div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a9">
+          Oui, tous nos projets incluent une garantie de 3 mois après livraison couvrant les bugs et dysfonctionnements.
+          Nous offrons également un support gratuit de 30 jours pour la formation et l'accompagnement de vos équipes.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="question" itemprop="name" data-i18n="faqPage.q10">Puis-je voir des exemples de vos réalisations ?
+      </div>
+      <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text" data-i18n="faqPage.a10">
+          Oui, consultez notre portfolio sur notre site web ou contactez-nous pour une présentation détaillée de nos
+          projets. Nous avons réalisé plus de 50 projets pour des clients au Cameroun et en Afrique centrale, dans
+          divers secteurs : e-commerce, logistique, transport, finance, éducation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2 data-i18n="faqPage.ctaTitle">Une question ? Contactez-nous !</h2>
+    <p>+237 691 691 603 | bomilsolutions@gmail.com</p>
+    <p><a href="index.html#/contact" data-i18n="faqPage.ctaLink">→ Demander un devis gratuit</a></p>
+  </div>
+
+  <footer style="margin-top: 40px; text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
+    <p><a href="index.html" data-i18n="faqPage.backLink">← Retour au site principal</a></p>
+  </footer>
+
+  <!-- Integration du systeme i18n -->
+  <script type="module">
+    import i18n from './js/i18n.js';
+
+    async function updateSchema() {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+      };
+      for (let i = 1; i <= 10; i++) {
+        schema.mainEntity.push({
+          "@type": "Question",
+          "name": i18n.t(`faqPage.q${i}`),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": i18n.t(`faqPage.a${i}`)
+          }
+        });
+      }
+      document.getElementById('faq-jsonld').textContent = JSON.stringify(schema);
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await i18n.init();
+
+      // Gerer le switcher de langue local
+      const langBtns = document.querySelectorAll('.lang-btn');
+      const updateActiveBtn = (lang) => {
+        langBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+      };
+
+      updateActiveBtn(i18n.currentLang);
+
+      langBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const lang = btn.getAttribute('data-lang');
+          await i18n.changeLanguage(lang);
+          updateActiveBtn(lang);
+          updateSchema();
+        });
+      });
+
+      // Ecouter les changements globaux
+      window.addEventListener('languageChanged', (e) => {
+        updateActiveBtn(e.detail.lang);
+        updateSchema();
+      });
+
+      // Initial Schema update
+      updateSchema();
+    });
+  </script>
+</body>
+
+</html>

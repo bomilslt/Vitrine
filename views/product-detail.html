@@ -1,0 +1,185 @@
+<!-- Product Detail View Template -->
+<style>
+    .pd-hero {
+        padding: 8rem 0 4rem;
+        background-color: var(--color-bg-alt);
+    }
+
+    .pd-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .pd-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .pd-title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+    }
+
+    .pd-subtitle {
+        font-size: 1.5rem;
+        color: var(--color-text-muted);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Features Grid */
+    .pd-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin: 4rem 0;
+    }
+
+    .pd-feature-item h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pd-feature-item h4::before {
+        content: '✓';
+        color: var(--color-primary);
+        font-weight: bold;
+    }
+
+    /* Gallery */
+    .pd-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 4rem;
+    }
+
+    .gallery-item {
+        height: 250px;
+        background: #eee;
+        border-radius: 8px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Contact Section in Product */
+    .pd-contact {
+        background: var(--color-primary);
+        color: white;
+        padding: 4rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 6rem;
+    }
+
+    .pd-contact h2 {
+        color: white;
+    }
+
+    .pd-contact .btn-primary {
+        background: white;
+        color: var(--color-primary);
+        border-color: white;
+        margin-top: 1.5rem;
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+        .pd-features {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* CTA Buttons Container */
+    .pd-cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+    }
+
+    .pd-cta-buttons .btn-primary {
+        background: white;
+        color: var(--color-primary);
+        border-color: white;
+    }
+
+    .pd-cta-buttons .btn-primary:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateY(-3px);
+    }
+
+    .btn-demo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.9rem 2rem;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-demo:hover {
+        background: white;
+        color: var(--color-primary);
+        transform: translateY(-3px);
+    }
+
+    .btn-demo svg {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-demo:hover svg {
+        transform: scale(1.2);
+    }
+</style>
+
+<div id="product-content-wrapper" class="animate-on-scroll">
+    <!-- Content injected via JS -->
+    <div class="pd-hero">
+        <div class="pd-container pd-header">
+            <h1 class="pd-title" id="pd-title">Chargement...</h1>
+            <p class="pd-subtitle" id="pd-description"></p>
+        </div>
+    </div>
+
+    <div class="pd-container">
+        <div class="pd-features" id="pd-features">
+            <!-- Features list -->
+        </div>
+
+        <h2 style="text-align:center; margin-top: 4rem;" data-i18n="products.galleryTitle">Aperçu</h2>
+        <div class="pd-gallery" id="pd-gallery">
+            <!-- Images -->
+        </div>
+
+        <div class="pd-contact">
+            <h2>
+                <span data-i18n="products.detailContactPrefix">Intéressé par</span>
+                <span id="pd-name-span">ce produit</span>
+                <span data-i18n="products.detailContactSuffix">?</span>
+            </h2>
+            <p data-i18n="products.detailContactSubtitle">Demandez une démo ou un devis personnalisé dès aujourd'hui.
+            </p>
+            <div class="pd-cta-buttons" id="pd-cta-container">
+                <!-- CTA buttons injected by JS -->
+                <a href="#/contact" class="btn-primary" data-i18n="products.detailContactButton">Contacter l'équipe</a>
+            </div>
+        </div>
+    </div>
+</div>
