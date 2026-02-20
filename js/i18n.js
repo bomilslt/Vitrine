@@ -55,7 +55,7 @@ class I18n {
     async init() {
         // Charger les traductions de la langue actuelle
         await this.loadTranslations(this.currentLang);
-        
+
         // Charger aussi la langue de fallback si différente
         if (this.currentLang !== this.fallbackLang) {
             await this.loadTranslations(this.fallbackLang);
@@ -63,10 +63,13 @@ class I18n {
 
         // Appliquer les traductions
         this.applyTranslations();
-        
+
         // Mettre à jour l'attribut lang du HTML
         document.documentElement.lang = this.currentLang;
-        
+
+        // Mettre à jour les meta tags de langue
+        this.updateMetaTags(this.currentLang);
+
         // Mettre à jour le toggle
         this.updateToggle();
 
@@ -145,16 +148,28 @@ class I18n {
         this.currentLang = lang;
         this.setStoredLanguage(lang);
         document.documentElement.lang = lang;
+        this.updateMetaTags(lang);
 
         // Appliquer les traductions
         this.applyTranslations();
-        
+
         // Mettre à jour le toggle
         this.updateToggle();
 
         // Émettre un événement
         window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 
+    }
+
+    /**
+     * Met à jour les meta tags liés à la langue
+     */
+    updateMetaTags(lang) {
+        const langMeta = document.querySelector('meta[name="language"]');
+        if (langMeta) langMeta.setAttribute('content', lang === 'fr' ? 'fr' : 'en');
+
+        const ogLocale = document.querySelector('meta[property="og:locale"]');
+        if (ogLocale) ogLocale.setAttribute('content', lang === 'fr' ? 'fr_FR' : 'en_US');
     }
 
     /**
@@ -165,7 +180,7 @@ class I18n {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.t(key);
-            
+
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
             } else {

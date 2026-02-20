@@ -47,9 +47,15 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Pages d'erreur personnalisées
-ErrorDocument 404 /index.html
-ErrorDocument 500 /index.html
+# Pages d'erreur personnalisées (Relatif au dossier racine du site)
+ErrorDocument 404 index.html
+ErrorDocument 500 index.html
+
+# Gestion du SPA (API History)
+# Rediriger tout vers index.html si le fichier n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
 
 # Bloquer l'accès aux fichiers sensibles
 <FilesMatch "^\.">

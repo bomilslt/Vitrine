@@ -7,24 +7,21 @@ import SEOManager from './seo-manager.js';
 
 // Define updateActiveLink as standalone function first
 function updateActiveLink() {
-    // Current hash without query params
-    let currentHash = window.location.hash || '#/';
-    let currentPath = currentHash.split('?')[0];
-
-    // Normalize: '#' alone or empty should be '#/'
-    if (currentPath === '#' || currentPath === '') {
-        currentPath = '#/';
-    }
+    const currentPath = window.location.pathname || '/';
 
     const links = document.querySelectorAll('.nav-links a[data-link]');
     links.forEach(link => {
-        const linkHref = link.getAttribute('href');
+        let linkHref = link.getAttribute('href');
+
+        // Remove trailing slashes for comparison if necessary
+        const normalizedLink = linkHref.replace(/\/$/, '') || '/';
+        const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
 
         // Reset first
         link.classList.remove('active');
 
         // Check match
-        if (linkHref === currentPath) {
+        if (normalizedLink === normalizedCurrent) {
             link.classList.add('active');
         }
     });
@@ -42,18 +39,27 @@ const router = {
     },
 
     init: function () {
-        // Handle hash changes
-        window.addEventListener('hashchange', this.handleLocation.bind(this));
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', this.handleLocation.bind(this));
+
+        // Intercept all internal clicks
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[data-link]');
+            if (link) {
+                e.preventDefault();
+                const path = link.getAttribute('href');
+                this.navigate(path);
+            }
+        });
 
         // Initial load
         this.handleLocation();
 
         // Refresh dynamic content and SEO on language change
         window.addEventListener('languageChanged', () => {
-            const hashParts = window.location.hash.split('?');
-            const urlParams = new URLSearchParams(hashParts[1] || '');
+            const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
-            const currentPath = window.location.hash.slice(1).split('?')[0] || '/';
+            const currentPath = window.location.pathname;
 
             SEOManager.updateMeta(currentPath, productId);
 
@@ -66,18 +72,15 @@ const router = {
         });
     },
 
-    handleLocation: async function () {
-        // Get hash (e.g. #/about) -> /about
-        let path = window.location.hash.slice(1) || '/';
+    navigate: function (path) {
+        window.history.pushState({}, '', path);
+        this.handleLocation();
+    },
 
-        // Helper to parse query params from hash if needed (e.g. #/product-detail?id=123)
-        // Simple extraction: separate path and query
-        let query = '';
-        const queryIndex = path.indexOf('?');
-        if (queryIndex !== -1) {
-            query = path.slice(queryIndex);
-            path = path.slice(0, queryIndex);
-        }
+    handleLocation: async function () {
+        // Get path (e.g. /about)
+        let path = window.location.pathname || '/';
+        const query = window.location.search;
 
         let viewPath = this.routes[path];
 
@@ -134,7 +137,7 @@ const router = {
         updateActiveLink();
 
         // SEO: Update meta tags based on current page
-        let currentPath = window.location.hash.slice(1).split('?')[0] || '/';
+        let currentPath = window.location.pathname;
         SEOManager.updateMeta(currentPath, productId);
 
         // i18n: Reapply translations after view load

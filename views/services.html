@@ -304,6 +304,32 @@
         box-shadow: 0 15px 40px rgba(4, 45, 82, 0.3);
     }
 
+    .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: auto;
+        padding-top: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .service-link:hover {
+        gap: 0.8rem;
+        color: #0a457a;
+    }
+
+    .featured-card .service-link {
+        color: #E0A800;
+    }
+
+    .featured-card .service-link:hover {
+        color: white;
+    }
+
     /* ============================================
        RESPONSIVE
        ============================================ */
@@ -366,6 +392,8 @@
                     <span data-i18n="services.webFeature3">Tableaux de Bord Administratifs (SaaS)</span>
                 </li>
             </ul>
+            <a href="/contact" class="service-link" data-link data-i18n="services.linkWeb">En savoir plus sur le Web
+                →</a>
         </div>
 
         <!-- Mobile Apps -->
@@ -397,6 +425,8 @@
                     <span data-i18n="services.mobileFeature2">Mode Offline & Synchro Cloud</span>
                 </li>
             </ul>
+            <a href="/contact" class="service-link" data-link data-i18n="services.linkMobile">Explorer les Apps Mobile &
+                Desktop →</a>
         </div>
 
         <!-- Automation -->
@@ -411,6 +441,7 @@
             <p data-i18n="services.autoDesc">Réduisez vos coûts opérationnels. Intégration d'IA générative et scripts
                 pour automatiser vos tâches
                 répétitives.</p>
+            <a href="/contact" class="service-link" data-link data-i18n="services.linkAuto">Optimiser via l'IA →</a>
         </div>
 
         <!-- Webmaster VIP - Featured -->
@@ -459,6 +490,8 @@
                     </li>
                 </ul>
             </div>
+            <a href="/contact" class="service-link" data-link data-i18n="services.linkWebmaster">Détails du pack
+                Webmaster VIP →</a>
         </div>
 
         <!-- Custom Solutions -->
@@ -475,6 +508,8 @@
             <p data-i18n="services.customDesc">Chaque entreprise a des défis uniques. Nous développons des logiciels
                 ERP, CRM et outils métier parfaitement adaptés à votre workflow spécifique (Gestion de stock, ERP
                 Transit, etc.).</p>
+            <a href="/contact" class="service-link" data-link data-i18n="services.linkCustom">Décrire mon besoin ERP sur
+                mesure →</a>
         </div>
     </div>
 </section>

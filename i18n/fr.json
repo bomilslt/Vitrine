@@ -48,8 +48,8 @@
     "title": "L'innovation tech au service de",
     "titleHighlight": "l'Afrique",
     "subtitle": "BOMIL SOLUTIONS transforme vos défis en opportunités digitales. Nous concevons des écosystèmes logiciels complets pour propulser votre croissance, de l'application mobile aux systèmes d'entreprise complexes.",
-    "ctaPrimary": "Démarrer un projet",
-    "ctaSecondary": "Voir nos produits",
+    "ctaPrimary": "Lancer mon projet digital",
+    "ctaSecondary": "Explorer nos logiciels",
     "trustedBy": "Ils nous font confiance",
     "statsProjects": "Projets Livrés",
     "statsClients": "Clients Satisfaits",
@@ -75,7 +75,7 @@
     "process4Desc": "Déploiement, formation et support continu.",
     "ctaTitle": "Prêt à innover ?",
     "ctaSubtitle": "Rejoignez les entreprises qui façonnent le futur digital de l'Afrique avec BOMIL SOLUTIONS.",
-    "ctaButton": "Discuter de mon projet →"
+    "ctaButton": "Démarrer une collaboration →"
   },
   "services": {
     "title": "Expertise",
@@ -105,7 +105,12 @@
     "techSubtitle": "Nous utilisons les outils les plus performants du marché pour construire vos solutions.",
     "ctaTitle": "Prêt à transformer votre idée ?",
     "ctaSubtitle": "Discutons de votre projet et voyons comment nous pouvons aider à atteindre vos objectifs.",
-    "ctaButton": "Demander un devis gratuit →"
+    "ctaButton": "Obtenir un devis IT gratuit →",
+    "linkWeb": "En savoir plus sur le Web",
+    "linkMobile": "Explorer les Apps Mobile & Desktop",
+    "linkAuto": "Optimiser via l'IA",
+    "linkWebmaster": "Détails du pack Webmaster VIP",
+    "linkCustom": "Décrire mon besoin ERP sur mesure"
   },
   "products": {
     "title": "Solutions",
@@ -359,9 +364,9 @@
   },
   "seo": {
     "default": {
-      "title": "BOMIL SOLUTIONS | Développement Web & Mobile Cameroun",
-      "description": "Agence #1 développement web & mobile au Cameroun. Applications, logiciels de gestion, sites web sur mesure. Yaoundé. Devis gratuit 24h.",
-      "keywords": "développement web Cameroun, développement mobile Yaoundé, agence digitale Cameroun, création application mobile, logiciel de gestion"
+      "title": "BOMIL SOLUTIONS | Développement Web & Mobile Cameroun | Yaoundé",
+      "description": "Agence #1 développement web & mobile au Cameroun. Applications mobiles Android/iOS, logiciels de gestion (ERP/CRM), sites web sur mesure à Yaoundé. Expertise tech premium.",
+      "keywords": "développement web Cameroun, développement mobile Yaoundé, agence digitale Douala, création application mobile Cameroun, logiciel de gestion ERP, transformation digitale Afrique"
     },
     "about": {
       "title": "À Propos | BOMIL SOLUTIONS - Notre Mission & Équipe",
@@ -369,9 +374,9 @@
       "keywords": "à propos BOMIL, équipe développeurs Cameroun, agence tech Yaoundé, mission BOMIL SOLUTIONS, valeurs entreprise"
     },
     "services": {
-      "title": "Services | Développement Web, Mobile & Logiciel | BOMIL",
-      "description": "Services de développement web, applications mobiles, logiciels sur mesure, consulting IT et transformation digitale au Cameroun. Expertise React, Flutter, Laravel, Node.js.",
-      "keywords": "services développement web, création application mobile, logiciel sur mesure, consulting IT Cameroun, transformation digitale"
+      "title": "Services Tech | Développement Mobile, Web & ERP | BOMIL",
+      "description": "Expertise en développement d'applications mobiles (Flutter, React Native), sites web performants, logiciels de gestion sur mesure et audit digital au Cameroun.",
+      "keywords": "création application mobile Yaoundé, développeur logiciel Cameroun, agence web Douala, transformation digitale PME, consulting IT Afrique centrale"
     },
     "products": {
       "title": "Nos Produits | Lucid, LOGis, Intercity | BOMIL",

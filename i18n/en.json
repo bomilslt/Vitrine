@@ -48,8 +48,8 @@
     "title": "Tech innovation serving",
     "titleHighlight": "Africa",
     "subtitle": "BOMIL SOLUTIONS transforms your challenges into digital opportunities. We design complete software ecosystems to drive your growth, from mobile apps to complex enterprise systems.",
-    "ctaPrimary": "Start a project",
-    "ctaSecondary": "View our products",
+    "ctaPrimary": "Launch my digital project",
+    "ctaSecondary": "Explore our software",
     "trustedBy": "They trust us",
     "statsProjects": "Projects Delivered",
     "statsClients": "Satisfied Clients",
@@ -75,7 +75,7 @@
     "process4Desc": "Deployment, training and ongoing support.",
     "ctaTitle": "Ready to innovate?",
     "ctaSubtitle": "Join the companies shaping Africa's digital future with BOMIL SOLUTIONS.",
-    "ctaButton": "Discuss my project →"
+    "ctaButton": "Start a collaboration →"
   },
   "services": {
     "title": "Expertise",
@@ -105,7 +105,12 @@
     "techSubtitle": "We use the most powerful tools on the market to build your solutions.",
     "ctaTitle": "Ready to transform your idea?",
     "ctaSubtitle": "Let's discuss your project and see how we can help you achieve your goals.",
-    "ctaButton": "Request a free quote →"
+    "ctaButton": "Get a free IT quote →",
+    "linkWeb": "Learn more about Web development",
+    "linkMobile": "Explore Mobile & Desktop apps",
+    "linkAuto": "Optimize with AI automation",
+    "linkWebmaster": "Check VIP Webmaster details",
+    "linkCustom": "Describe my custom ERP project"
   },
   "products": {
     "title": "Business",
@@ -359,9 +364,9 @@
   },
   "seo": {
     "default": {
-      "title": "BOMIL SOLUTIONS | Web & Mobile Development Cameroon",
-      "description": "#1 web & mobile development agency in Cameroon. Applications, management software, custom websites. Yaoundé. Free quote 24h.",
-      "keywords": "web development Cameroon, mobile development Yaoundé, digital agency Cameroon, create mobile app, management software"
+      "title": "BOMIL SOLUTIONS | Web & Mobile Development Cameroon | Yaoundé",
+      "description": "Top-tier web & mobile development agency in Cameroon. Android/iOS apps, management software (ERP/CRM), custom websites in Yaoundé. Premium digital transformation.",
+      "keywords": "web development Cameroon, mobile development Yaoundé, digital agency Douala, mobile app development Africa, ERP software, digital transformation"
     },
     "about": {
       "title": "About | BOMIL SOLUTIONS - Our Mission & Team",
@@ -369,9 +374,9 @@
       "keywords": "about BOMIL, team of developers Cameroon, tech agency Yaoundé, BOMIL SOLUTIONS mission, company values"
     },
     "services": {
-      "title": "Services | Web, Mobile & Software Development | BOMIL",
-      "description": "Web development services, mobile applications, custom software, IT consulting and digital transformation in Cameroon. React, Flutter, Laravel, Node.js expertise.",
-      "keywords": "web development services, create mobile app, custom software, IT consulting Cameroon, digital transformation"
+      "title": "Tech Services | Mobile, Web & ERP Development | BOMIL",
+      "description": "Expertise in mobile app development (Flutter, React Native), high-performance websites, custom management software, and digital audit in Cameroon.",
+      "keywords": "mobile app creation Yaoundé, software developer Cameroon, web agency Douala, SME digital transformation, IT consulting Central Africa"
     },
     "products": {
       "title": "Our Products | Lucid, LOGis, Intercity | BOMIL",

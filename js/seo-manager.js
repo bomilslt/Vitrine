@@ -34,7 +34,7 @@ const SEOManager = {
         const pageKey = this.config.paths[path] || 'default';
         let i18nPath = `seo.${pageKey}`;
         let ogImage = this.config.images[pageKey];
-        let canonical = this.config.baseUrl + (path === '/' ? '' : '#' + path);
+        let canonical = this.config.baseUrl + (path === '/' ? '' : path.slice(1));
 
         // Gestion spéciale pour les pages produits
         if (path === '/product-detail' && productId) {
