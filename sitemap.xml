@@ -10,12 +10,12 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="fr" href="https://www.bomils.com/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.bomils.com/en"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.bomils.com/#/en"/>
     </url>
     
     <!-- À Propos -->
     <url>
-        <loc>https://www.bomils.com/about</loc>
+        <loc>https://www.bomils.com/#/about</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -23,7 +23,7 @@
     
     <!-- Services -->
     <url>
-        <loc>https://www.bomils.com/services</loc>
+        <loc>https://www.bomils.com/#/services</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -31,7 +31,7 @@
     
     <!-- Produits -->
     <url>
-        <loc>https://www.bomils.com/products</loc>
+        <loc>https://www.bomils.com/#/products</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -39,7 +39,7 @@
     
     <!-- Contact -->
     <url>
-        <loc>https://www.bomils.com/contact</loc>
+        <loc>https://www.bomils.com/#/contact</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -47,7 +47,7 @@
     
     <!-- Produit: Lucid -->
     <url>
-        <loc>https://www.bomils.com/product-detail?id=lucid</loc>
+        <loc>https://www.bomils.com/#/product-detail?id=lucid</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -59,7 +59,7 @@
     
     <!-- Produit: LOGis -->
     <url>
-        <loc>https://www.bomils.com/product-detail?id=logis</loc>
+        <loc>https://www.bomils.com/#/product-detail?id=logis</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -71,7 +71,7 @@
     
     <!-- Produit: Intercity -->
     <url>
-        <loc>https://www.bomils.com/product-detail?id=intercity</loc>
+        <loc>https://www.bomils.com/#/product-detail?id=intercity</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

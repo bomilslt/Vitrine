@@ -7,21 +7,16 @@ import SEOManager from './seo-manager.js';
 
 // Define updateActiveLink as standalone function first
 function updateActiveLink() {
-    const currentPath = window.location.pathname || '/';
+    const hash = window.location.hash || '#/';
+    const path = hash.slice(1) || '/';
 
     const links = document.querySelectorAll('.nav-links a[data-link]');
     links.forEach(link => {
         let linkHref = link.getAttribute('href');
 
-        // Remove trailing slashes for comparison if necessary
-        const normalizedLink = linkHref.replace(/\/$/, '') || '/';
-        const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
-
-        // Reset first
+        // Check match against hash-based path
         link.classList.remove('active');
-
-        // Check match
-        if (normalizedLink === normalizedCurrent) {
+        if (linkHref === '#' + path || (linkHref === '/' && path === '/')) {
             link.classList.add('active');
         }
     });
@@ -40,17 +35,7 @@ const router = {
 
     init: function () {
         // Handle browser back/forward buttons
-        window.addEventListener('popstate', this.handleLocation.bind(this));
-
-        // Intercept all internal clicks
-        document.addEventListener('click', (e) => {
-            const link = e.target.closest('a[data-link]');
-            if (link) {
-                e.preventDefault();
-                const path = link.getAttribute('href');
-                this.navigate(path);
-            }
-        });
+        window.addEventListener('hashchange', this.handleLocation.bind(this));
 
         // Initial load
         this.handleLocation();
@@ -73,14 +58,14 @@ const router = {
     },
 
     navigate: function (path) {
-        window.history.pushState({}, '', path);
-        this.handleLocation();
+        window.location.hash = path;
     },
 
     handleLocation: async function () {
-        // Get path (e.g. /about)
-        let path = window.location.pathname || '/';
-        const query = window.location.search;
+        // Get path from hash (e.g. #/about -> /about)
+        let hash = window.location.hash || '#/';
+        let path = hash.split('?')[0].slice(1) || '/';
+        const query = hash.includes('?') ? '?' + hash.split('?')[1] : '';
 
         let viewPath = this.routes[path];
 
@@ -137,7 +122,8 @@ const router = {
         updateActiveLink();
 
         // SEO: Update meta tags based on current page
-        let currentPath = window.location.pathname;
+        let hash = window.location.hash || '#/';
+        let currentPath = hash.split('?')[0].slice(1) || '/';
         SEOManager.updateMeta(currentPath, productId);
 
         // i18n: Reapply translations after view load

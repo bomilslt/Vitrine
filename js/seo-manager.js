@@ -31,16 +31,15 @@ const SEOManager = {
      * Met à jour les meta tags selon la page
      */
     updateMeta: function (path, productId = null) {
-        const pageKey = this.config.paths[path] || 'default';
         let i18nPath = `seo.${pageKey}`;
         let ogImage = this.config.images[pageKey];
-        let canonical = this.config.baseUrl + (path === '/' ? '' : path.slice(1));
+        let canonical = this.config.baseUrl + (path === '/' ? '' : '#' + path);
 
         // Gestion spéciale pour les pages produits
         if (path === '/product-detail' && productId) {
             i18nPath = `seo.productDetail.${productId}`;
             ogImage = this.config.images[productId] || ogImage;
-            canonical += `?id=${productId}`;
+            canonical = this.config.baseUrl + '#/product-detail?id=' + productId;
         }
 
         // Récupération des traductions (via window.i18n car SEOManager est importé tôt)
