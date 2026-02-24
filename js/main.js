@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         option.addEventListener('click', async () => {
             const lang = option.getAttribute('data-lang');
             await i18n.changeLanguage(lang);
-            
+
             // Réappliquer les traductions après changement de vue
             if (window.reinitAnimations) {
                 setTimeout(() => i18n.applyTranslations(), 200);
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Écouter les changements de langue
     window.addEventListener('languageChanged', (e) => {
         console.log('Language changed to:', e.detail.lang);
-        
+
         // Mettre à jour le SEO Manager avec la nouvelle langue
         const currentPath = window.location.hash.slice(1).split('?')[0] || '/';
         if (window.SEOManager) {
@@ -73,6 +73,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     initParallaxEffects();
     initTiltEffects();
     initNavbarEffects();
+
+    // ============================================
+    // EMAILJS CONTACT FORM HANDLING (Event Delegation)
+    // ============================================
+    document.body.addEventListener('submit', function (event) {
+        if (event.target && event.target.id === 'contact-form') {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const submitBtn = document.getElementById('contact-submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = 'Envoi en cours... <span class="loader-spinner"></span>';
+            submitBtn.disabled = true;
+
+            // Replace these with your actual EmailJS Service ID and Template ID
+            const serviceID = 'service_aub89kh';
+            const templateID = 'template_0gn7sg9';
+
+            emailjs.sendForm(serviceID, templateID, form)
+                .then(() => {
+                    showNotification(
+                        'Succès !',
+                        'Message envoyé avec succès. Nous vous répondrons rapidement.',
+                        'success'
+                    );
+                    form.reset(); // Clear the form
+                }, (error) => {
+                    showNotification(
+                        'Erreur d\'envoi',
+                        'Une erreur s\'est produite. Veuillez réessayer plus tard.',
+                        'error'
+                    );
+                    console.error('EmailJS Error:', error);
+                })
+                .finally(() => {
+                    // Restore button state
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        }
+    });
+
 });
 
 // ============================================
@@ -323,3 +367,57 @@ export function reinitAnimations() {
 
 // Make reinit available globally for router
 window.reinitAnimations = reinitAnimations;
+
+// ============================================
+// CUSTOM NOTIFICATION SYSTEM
+// ============================================
+export function showNotification(title, message, type = 'success') {
+    // Icons SVG
+    const icons = {
+        success: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
+        error: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`
+    };
+
+    // Create notification container
+    const notification = document.createElement('div');
+    notification.className = `custom-notification ${type}`;
+
+    // Build HTML content
+    notification.innerHTML = `
+        <div class="icon">
+            ${icons[type] || icons.success}
+        </div>
+        <div class="content">
+            <h4>${title}</h4>
+            <p>${message}</p>
+        </div>
+        <button class="close-btn" aria-label="Fermer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    `;
+
+    // Append to body
+    document.body.appendChild(notification);
+
+    // Trigger animation (small delay for DOM rendering)
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+    });
+
+    // Handle close button
+    const closeBtn = notification.querySelector('.close-btn');
+    const closeNotification = () => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 400); // Wait for transition
+    };
+
+    closeBtn.addEventListener('click', closeNotification);
+
+    // Auto-remove after 5 seconds
+    setTimeout(closeNotification, 5000);
+}
+
+// Make notification available globally for elements outside JS modules (like old onclicks)
+window.showNotification = showNotification;

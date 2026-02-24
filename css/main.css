@@ -831,3 +831,89 @@ a {
         padding: 1.5rem !important;
     }
 }
+
+/* ============================================
+   CUSTOM NOTIFICATIONS (TOASTS)
+   ============================================ */
+.custom-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: white;
+    box-shadow: 0 10px 40px rgba(4, 45, 82, 0.15);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10000;
+    max-width: 400px;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 4px solid var(--color-primary);
+}
+
+.custom-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.custom-notification .icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-notification.success {
+    border-left-color: #10B981;
+}
+
+.custom-notification.success .icon {
+    color: #10B981;
+}
+
+.custom-notification.error {
+    border-left-color: #EF4444;
+}
+
+.custom-notification.error .icon {
+    color: #EF4444;
+}
+
+.custom-notification .content {
+    flex-grow: 1;
+}
+
+.custom-notification h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.custom-notification p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+.custom-notification .close-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.custom-notification .close-btn:hover {
+    color: var(--color-primary);
+}

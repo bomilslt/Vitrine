@@ -419,7 +419,8 @@
                         </path>
                     </svg>
                 </a> -->
-                <a href="https://www.facebook.com/profile.php?id=61588169611234" class="social-link" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61588169611234" class="social-link"
+                    aria-label="Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -444,46 +445,55 @@
             <p data-i18n="contact.formSubtitle">Remplissez le formulaire et nous vous répondrons sous 24h.</p>
         </div>
 
-        <form
-            onsubmit="event.preventDefault(); alert('✅ Message envoyé avec succès ! Nous vous répondrons rapidement.');">
+        <form id="contact-form">
             <div class="form-grid">
                 <div class="form-group">
                     <label data-i18n="contact.firstName">Prénom</label>
-                    <input type="text" required data-i18n="contact.firstNamePlaceholder" placeholder="Votre prénom">
+                    <input type="text" name="first_name" required data-i18n="contact.firstNamePlaceholder"
+                        placeholder="Votre prénom">
                 </div>
                 <div class="form-group">
                     <label data-i18n="contact.lastName">Nom</label>
-                    <input type="text" required data-i18n="contact.lastNamePlaceholder" placeholder="Votre nom">
+                    <input type="text" name="last_name" required data-i18n="contact.lastNamePlaceholder"
+                        placeholder="Votre nom">
                 </div>
                 <div class="form-group">
                     <label data-i18n="contact.email">Email</label>
-                    <input type="email" required data-i18n="contact.emailPlaceholder" placeholder="exemple@email.com">
+                    <input type="email" name="user_email" required data-i18n="contact.emailPlaceholder"
+                        placeholder="exemple@email.com">
                 </div>
                 <div class="form-group">
                     <label data-i18n="contact.phone">Téléphone</label>
-                    <input type="tel" data-i18n="contact.phonePlaceholder" placeholder="+237 6XX XXX XXX">
+                    <input type="tel" name="user_phone" data-i18n="contact.phonePlaceholder"
+                        placeholder="+237 6XX XXX XXX">
                 </div>
                 <div class="form-group full-width">
                     <label data-i18n="contact.subject">Sujet</label>
-                    <select required>
+                    <select name="subject" required>
                         <option value="" data-i18n="contact.subjectDefault">Sélectionnez un sujet</option>
-                        <option data-i18n="contact.subjectWeb">Création de Site Web</option>
-                        <option data-i18n="contact.subjectMobile">Développement App Mobile</option>
-                        <option data-i18n="contact.subjectSoftware">Logiciel Sur Mesure (ERP/CRM)</option>
-                        <option data-i18n="contact.subjectLogis">Produit: LOGis</option>
-                        <option data-i18n="contact.subjectIntercity">Produit: Intercity</option>
-                        <option data-i18n="contact.subjectLucid">Produit: Lucid</option>
-                        <option data-i18n="contact.subjectVip">Service Webmaster VIP</option>
-                        <option data-i18n="contact.subjectOther">Autre demande</option>
+                        <option value="Création de Site Web" data-i18n="contact.subjectWeb">Création de Site Web
+                        </option>
+                        <option value="Développement App Mobile" data-i18n="contact.subjectMobile">Développement App
+                            Mobile</option>
+                        <option value="Logiciel Sur Mesure (ERP/CRM)" data-i18n="contact.subjectSoftware">Logiciel Sur
+                            Mesure (ERP/CRM)</option>
+                        <option value="Produit: LOGis" data-i18n="contact.subjectLogis">Produit: LOGis</option>
+                        <option value="Produit: Intercity" data-i18n="contact.subjectIntercity">Produit: Intercity
+                        </option>
+                        <option value="Produit: Lucid" data-i18n="contact.subjectLucid">Produit: Lucid</option>
+                        <option value="Service Webmaster VIP" data-i18n="contact.subjectVip">Service Webmaster VIP
+                        </option>
+                        <option value="Autre demande" data-i18n="contact.subjectOther">Autre demande</option>
                     </select>
                 </div>
                 <div class="form-group full-width">
                     <label data-i18n="contact.message">Message</label>
-                    <textarea rows="5" required data-i18n="contact.messagePlaceholder"
+                    <textarea name="message" rows="5" required data-i18n="contact.messagePlaceholder"
                         placeholder="Décrivez votre projet ou votre besoin..."></textarea>
                 </div>
             </div>
-            <button type="submit" class="submit-btn" data-i18n="contact.submit">Envoyer le message →</button>
+            <button type="submit" id="contact-submit-btn" class="submit-btn" data-i18n="contact.submit">Envoyer le
+                message →</button>
         </form>
     </div>
 </section>
